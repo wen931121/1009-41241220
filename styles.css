@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#controls {
+    margin-bottom: 20px; /* 按鈕和圖片容器之間的間距 */
+}
+
+#controls button, #controls select {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px; /* 兩個按鈕之間的間距 */
+    cursor: pointer;
+}
+
+.image-container {
+    display: grid;
+    grid-gap: 5px 15px; /* 上下間距 5px，左右間距縮小到 15px */
+    justify-content: center; /* 水平居中 */
+}
+
+#timer, #gameTime {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flip-container {
+    perspective: 1000px;
+}
+
+.flipper {
+    position: relative;
+    width: 80px;  /* 再次縮小寬度 */
+    height: 120px; /* 再次縮小高度 */
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front img, .back img {
+    width: 80%;  /* 繼續縮小圖片寬度 */
+    height: 80%; /* 繼續縮小圖片高度 */
+    margin: 10%;  /* 保持圖片居中，並調整邊距 */
+}
+
+.front {
+    z-index: 2;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.flipped .flipper {
+    transform: rotateY(180deg);
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* 放大到 1.2 倍 */
+    }
+    100% {
+        transform: scale(0); /* 最後縮小到 0 */
+        visibility: hidden; /* 隱藏元素 */
+    }
+}
+
+.matched {
+    animation: zoomOut 1s ease-out forwards; /* 配對成功的卡片使用放大動畫 */
+}

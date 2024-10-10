@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多圖片動態分配與翻轉效果</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="controls">
+        <button id="startGame">開始</button>
+        <button id="toggleGame">切換到動物卡片</button>
+        <label for="gridSize">選擇網格大小:</label>
+        <select id="gridSize">
+            <option value="2">2x2</option>
+            <option value="4" selected>4x4</option>
+            <option value="6">6x6</option>
+        </select>
+        <label for="countdownTime">選擇倒數時間：</label>
+        <select id="countdownTime">
+          <option value="3">3 秒</option>
+          <option value="10">10 秒</option>
+          <option value="30">30 秒</option>
+        </select>
+    </div>
+    <div id="imageContainer" class="image-container"></div>
+
+    <div id="timer"></div> <!-- 倒計時區域 -->
+    <div id="gameTime"></div> <!-- 顯示遊戲時間 -->
+
+    <!-- 音效 -->
+    <audio id="successSound" src="sounds/123.mp3" preload="auto"></audio>
+    <audio id="failureSound" src="sounds/456.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
